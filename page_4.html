@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+    pokey mon league international
+  </header>
+  <div id="spacer"> </div>
+  <nav>  
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="page_2.html">Pokemon League</a></li>
+      <li><a href="page_3.html">Hall of Fame</a></li>
+      <li><a href="page_4.html">Registration</a></li>
+    </ul>
+  </nav> 
+  <div id="league"> 
+    <h3>Elite 4 Registrations are open, but not for the faint of heart. Sign up today! </h3> </div>
+
+  <div id="formspace">
+    <form onSubmit="ageCheck(), badgeCheck()">
+      <fieldset>
+      <label for="userName">Preferred Name:</label><br/>
+      <input type="text" id="userName" name="userName"></br></br>
+      
+      <label for="userAge">Age:</label><br/>
+      <input type="text" id="userAge" name="userAge"></br></br>
+      
+      <label for="region">What region are you from?</label></br>
+      
+      <select name="region" id="region">
+        <option value="gen1">Kanto</option>
+        <option value="gen2">Johto</option>
+        <option value="gen3">Hoenn</option>
+        <option value="gen4">Sinnoh</option>
+        <option value="gen5">Unova</option>
+        <option value="gen6">Kalos</option>
+        <option value="gen7">Alola</option>        
+        <option value="gen8">Galar</option>
+      </select> </br> </br>
+
+      <label for="userBadges">Badge/Island Challenge Count:</label><br/>
+      <input type="text" id="userBadges" name="userBadges"></br></br>
+
+      <input type = "submit" value = "Submit" onClick="infoConfirm()">
+      <input type = "reset" value = "Reset">
+      </fieldset>
+    </form>
+  </div>
+
+  <div id="formspace">
+    <fieldset>
+      <legend>Your Responses: </legend>
+      <p id="results"></p>
+    </fieldset>
+  </div>
+  
+  <a href="page_3.html" class="previous round">Previous</a>
+  
+  <div id="spacer"> </div>
+  <footer>
+    <h3>Disclaimer! This website is a parody, and not an actual official site run by the Pokemon Company and/or Gamefreak.</h3>
+    <p>This site was made for PSHS Batch 2025's Computer Science 3 Project in Website Design. It is not meant to impersonate or monetize any part of the Pokemon Company's brand.</p>
+  </footer>
+</body>
+  
+<script>
+  function ageCheck(){
+   var x = document.getElementById("userAge").value;
+
+  if( x<10 || x == " " ){
+    alert("Please enter a valid age! Trainers under the age of 10 cannot participate in the Elite 4 Challenge.");
+  }
+}
+  function badgeCheck(){
+  var y = document.getElementById("userBadges").value;
+
+  if(y<8 || y == " "){
+    alert("Please enter a valid amount of Badges or Island Challenges! Trainers who have not accomplished at least 8 cannot participate in the Elite 4 Challenge.");
+  }
+}
+  function infoConfirm(){
+    var x = document.getElementById("userName").value;
+    var y = document.getElementById("userAge").value;
+    var z = document.getElementById("region").value;
+    var a = document.getElementById("userBadges").value;
+
+    document.getElementById("results").innerHTML = "Preferred Name: " + x + "</br>" + "Age: " + y + "</br>" + "Region: " + z + "</br>" + "Badge Count: " + a;
+    return false;}
+</script>
+
+</html>
